@@ -40,4 +40,4 @@
 
 # Images
 
-<img src="pptScen/login.JPG" >
+<img src="pptScen/login.JPG" width="400" height="300" >
