@@ -51,7 +51,7 @@
 
 *Entity Relationship*
 
-<img src="pptScen/entityRelation.JPG  >
+<img src="pptScen/entityRelation.JPG"  >
 
 *Brainstorming Diagram*
 
