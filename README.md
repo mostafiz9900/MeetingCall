@@ -40,20 +40,23 @@
 
 # Images
 
-<img src="pptScen/login.JPG" width="400" height="300" >
 
-*Dashbroad*
+*Entity Class*
 
-<img src="pptScen/dashboard.JPG" width="900" height="300" >
+<img src="pptScen/entityClass.JPG" width="900" height="300" >
 
-*User Add*
+*Entity diagram*
 
-<img src="pptScen/userAdd.JPG"  >
+<img src="pptScen/entityDia.JPG"  >
 
-*User List*
+*Entity Relationship*
 
-<img src="pptScen/userList.JPG"  >
+<img src="pptScen/entityRelation.JPG  >
 
-*User Edti*
+*Brainstorming Diagram*
 
-<img src="pptScen/userEdit.JPG"  >
+<img src="pptScen/brainstorming_diagram.JPG"  >
+
+*Use Case*
+
+<img src="pptScen/useCase.JPG" >
