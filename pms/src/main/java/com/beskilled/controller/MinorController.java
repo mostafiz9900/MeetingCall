@@ -36,7 +36,7 @@ public class MinorController {
     }
 
     @PostMapping(value = "add/{id}")
-    public String deptAdd(@Valid MeetingMinorsDto dto, BindingResult result, Model model){
+    public String deptAdd(@Valid MeetingMinorsDto dto, BindingResult result, Model model, @PathVariable("id") Long id){
         if(result.hasErrors()){
             return "minors/add";
 
@@ -45,8 +45,10 @@ public class MinorController {
            minor.setMeetingTitle(dto.getMeetingsubject());
            minor.setAgendaAction(dto.getMeetingAgenda());
            minor.setRemark(dto.getRemarks());
+            minor.setMeeting(new Meeting(id));
             /////////dto theke value ene minor obj set korbe then save
             this.repo.save(minor);
+            model.addAttribute("dto", new MeetingMinorsDto());
             model.addAttribute("minor", new Minor());
             model.addAttribute("successMsg","Successfully Saved!");
         }

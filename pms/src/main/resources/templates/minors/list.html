@@ -37,15 +37,19 @@
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
 
+                                            <th data-field="minor" >Meeting Title</th>
+                                            <th data-field="agenda" >Meeting Agenda</th>
+                                            <th data-field="remark" >Remark</th>
 
-                                            <th data-field="meetingTitle">Officer Name</th>
-                                            <th data-field="agendaAction" >Start Date</th>
-                                            <th data-field="Subject" >Meeting Subject</th>
-                                           <!-- <th data-field="MeetingAgendaa" >MeetingAgendaa</th>
-                                            <th data-field="MeetingAgendaa" >MeetingAgendaa</th>
-                                            <th data-field="presentOfficers" >presentOfficers</th>
-                                            <th data-field="organization" >organization</th>
-                                            <th data-field="remark" >remarks</th>-->
+                                            <th data-field="offeser">Offeser Name</th>
+                                            <th data-field="OrgName" >Org Name</th>
+                                            <th data-field="startDate" >Start Date</th>
+                                            <th data-field="meetingSubj" >Meeting Subject</th>
+
+
+
+
+
 
 
 
@@ -57,12 +61,31 @@
                                         <tbody>
                                         <tr th:each="min:${list}">
                                             <td></td>
-                                            <td th:text="${min.id}"></td>
-
-
                                             <td th:text="${min.meetingTitle}"></td>
                                             <td th:text="${min.agendaAction}"></td>
                                             <td th:text="${min.remark}"></td>
+
+
+                                            <td>
+                                            <span th:each="offe:${min.meeting.users}">
+                                                <span th:text="${offe.userName}"></span>
+                                            </span>
+                                            </td>
+                                            <td>
+                                            <span th:each="org:${min.meeting.organization}">
+                                                <span th:text="${org.orgName}"></span>
+                                            </span>
+                                            </td>
+                                            <td>
+                                            <span th:each="org:${min.meeting}">
+                                                <span th:text="${org.startDate}"></span>
+                                            </span>
+                                        </td>
+                                            <td>
+                                            <span th:each="org:${min.meeting}">
+                                                <span th:text="${org.subject}"></span>
+                                            </span>
+                                            </td>
 
 
                                             <td>

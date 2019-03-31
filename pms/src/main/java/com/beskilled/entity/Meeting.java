@@ -36,6 +36,10 @@ public class Meeting {
     public Meeting() {
     }
 
+    public Meeting(Long id) {
+        this.id=id;
+    }
+
     public Meeting(Date startDate, String toAddress, String fromAddress, String subject, String body, String end, Set<User> users, Organization organization) {
         this.startDate = startDate;
         this.toAddress = toAddress;
