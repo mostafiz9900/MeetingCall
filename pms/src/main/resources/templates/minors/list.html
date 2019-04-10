@@ -37,7 +37,7 @@
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
 
-                                            <th data-field="minor" >Meeting Title</th>
+                                            <th data-field="meetingTit" >Meeting Title</th>
                                             <th data-field="agenda" >Meeting Agenda</th>
                                             <th data-field="remark" >Remark</th>
 
@@ -61,6 +61,7 @@
                                         <tbody>
                                         <tr th:each="min:${list}">
                                             <td></td>
+                                            <td th:text="${min.id}"></td>
                                             <td th:text="${min.meetingTitle}"></td>
                                             <td th:text="${min.agendaAction}"></td>
                                             <td th:text="${min.remark}"></td>

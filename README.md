@@ -1,7 +1,7 @@
 # MeetingCall
 ## Core, spring Boot, SQL, Template Engines
 
-# Core
+## Core
 - DevTools
 
 # Spring Boot

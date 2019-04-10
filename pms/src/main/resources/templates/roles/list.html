@@ -18,7 +18,7 @@
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
-                                    <h1>Role  <span class="table-project-n">List</span> Table</h1>
+                                    <h1>Role  <span class="table-project-n">List</span></h1>
                                 </div>
                             </div>
                             <div class="sparkline13-graph">
@@ -33,12 +33,12 @@
                                     <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
                                            data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                         <thead>
-                                        <tr>
+                                        <tr class="align-center">
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
 
 
-                                            <th data-field="name" data-editable="true">Role Name</th>
+                                            <th data-field="name">Role Name</th>
                                             <th data-field="edit">Edit</th>
                                             <th data-field="delete">Delete</th>
                                             <th data-field="action">Action</th>
@@ -50,10 +50,10 @@
                                             <td th:text="${role.id}"></td>
                                             <td th:text="${role.roleName}"></td>
                                             <td>
-                                                <a th:href="@{'/role/edit/'+${role.id}}">Edit</a>
+                                                <a th:href="@{'/role/edit/'+${role.id}}" class="btn btn-info">Edit</a>
                                             </td>
                                             <td>
-                                                <a th:href="@{'/role/del/'+${role.id}}">Del</a>
+                                                <a th:href="@{'/role/del/'+${role.id}}" class="btn btn-danger">Del</a>
                                             </td>
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>

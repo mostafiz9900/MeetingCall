@@ -16,7 +16,7 @@
                 <div class="sparkline12-list">
                     <div class="sparkline12-hd">
                         <div class="main-sparkline12-hd">
-                            <h1>All Minor Element </h1>
+                            <h1>Add Minir :</h1>
                         </div>
                     </div>
                     <div class="sparkline12-graph">
@@ -29,12 +29,16 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Officer Name</label>
+                                                        <label class="login2 pull-right pull-right-pro">Officer
+                                                            Name</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                                         <div class="form-select-list">
-                                                            <select th:field="*{presentOfficers}" class="form-control custom-select-value" name="account" multiple>
-                                                                <option th:each="oficer :${dto.getPresentOfficers()}" th:value="${oficer.id}">
+                                                            <select th:field="*{presentOfficers}"
+                                                                    class="form-control custom-select-value"
+                                                                    name="account" multiple>
+                                                                <option th:each="oficer :${dto.getPresentOfficers()}"
+                                                                        th:value="${oficer.id}">
                                                                     <span th:text="${oficer.getFirstName()}+' '+${oficer.getLastName()}"></span>
                                                                 </option>
 
@@ -52,8 +56,11 @@
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                                         <div class="form-select-list">
-                                                            <select th:field="*{organization}" class="form-control custom-select-value" name="account" multiple>
-                                                                <option th:each="org :${dto.getOrganization()}" th:value="${org.id}">
+                                                            <select th:field="*{organization}"
+                                                                    class="form-control custom-select-value"
+                                                                    name="account" multiple>
+                                                                <option th:each="org :${dto.getOrganization()}"
+                                                                        th:value="${org.id}">
                                                                     <span th:text="${org.orgName}"></span>
                                                                 </option>
 
@@ -65,14 +72,15 @@
                                             </div>
 
                                             <div class="form-group-inner">
-                                            <div class="row">
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                            <label class="login2 pull-right pull-right-pro">startDate</label>
-                                            </div>
-                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <input type="text" th:field="*{startDate}" class="form-control" />
-                                            </div>
-                                            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">startDate</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" th:field="*{startDate}"
+                                                               class="form-control"/>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="form-group-inner">
@@ -81,29 +89,32 @@
                                                         <label class="login2 pull-right pull-right-pro">meetingsubject</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{meetingsubject}" class="form-control" />
+                                                        <input type="text" th:field="*{meetingsubject}"
+                                                               class="form-control"/>
 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group-inner">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                    <label class="login2 pull-right pull-right-pro">meetingAgenda</label>
-                                                </div>
-                                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                    <input type="text" th:field="*{meetingAgenda}" class="form-control" />
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">meetingAgenda</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" th:field="*{meetingAgenda}"
+                                                               class="form-control"/>
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">meetingMinors</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{meetingMinors}" class="form-control" />
+                                                        <input type="text" th:field="*{meetingMinors}"
+                                                               class="form-control"/>
 
                                                     </div>
                                                 </div>
@@ -114,27 +125,29 @@
                                                         <label class="login2 pull-right pull-right-pro">remarks</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{remarks}" class="form-control" />
+                                                        <input type="text" th:field="*{remarks}" class="form-control"/>
 
                                                     </div>
                                                 </div>
                                             </div>
 
 
-
                                             <div class="login-btn-inner">
-                                                    <div class="row">
-                                                        <div class="col-lg-3"></div>
-                                                        <div class="col-lg-9">
-                                                            <div class="login-horizental cancel-wp pull-left">
-                                                                <button class="btn btn-white" type="submit">Cancel</button>
-                                                                <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Minor </button>
-                                                            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3"></div>
+                                                    <div class="col-lg-9">
+                                                        <div class="login-horizental cancel-wp pull-left">
+                                                            <button class="btn btn-white" type="submit">Cancel</button>
+                                                            <button class="btn btn-sm btn-primary login-submit-cs"
+                                                                    type="submit">Save Minor
+                                                            </button>
                                                         </div>
                                                     </div>
+                                                </div>
                                             </div>
 
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +155,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 </body>
