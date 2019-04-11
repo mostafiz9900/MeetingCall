@@ -6,22 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Meeting Add</title>
-
-
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-
-    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-
-    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
-
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker1').datetimepicker();
-        });
-    </script>
-
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -32,7 +16,7 @@
                 <div class="sparkline12-list">
                     <div class="sparkline12-hd">
                         <div class="main-sparkline12-hd">
-                            <h1>Meeting call</h1>
+                            <h1>Meeting Cancel</h1>
                         </div>
                     </div>
                     <div class="sparkline12-graph">
@@ -40,8 +24,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <span th:class="succes" th:text="${successMsg}"></span>
-                                        <form th:object="${meeting}" th:action="@{/meet/add}" th:method="POST">
+                                        <form th:object="${meeting}" th:action="@{/meet/cancel/}+${id}" th:method="POST">
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <!--start User List -->
@@ -83,33 +66,14 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Meeting Date</label>
+                                                        <label class="login2 pull-right pull-right-pro">Start Date</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <div class="form-group">
-                                                            <div class='input-group date' id='datetimepicker1'>
-                                                                <input type='text' class="form-control" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                           <!-- <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Meeting Date</label>
-                                                    </div>
-                                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="datetime-local" th:field="*{startDate}" class="form-control" />
+                                                        <input type="date" th:field="*{startDate}" class="form-control" />
                                                         <span th:class="err" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">startDate Error</span>
                                                     </div>
                                                 </div>
-                                            </div>-->
+                                            </div>
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -152,7 +116,7 @@
                                                         <label class="login2 pull-right pull-right-pro">Body</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="text" th:field="*{body}" class="form-control" required/>
+                                                        <input type="text" th:field="*{body}" class="form-control" />
                                                         <span th:class="err" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Body Error</span>
                                                     </div>
                                                 </div>
@@ -163,7 +127,7 @@
                                                         <label class="login2 pull-right pull-right-pro">End</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="text" th:field="*{end}" class="form-control" required />
+                                                        <input type="text" th:field="*{end}" class="form-control" />
                                                         <span th:class="err" th:if="${#fields.hasErrors('end')}" th:errors="*{end}">End Error</span>
                                                     </div>
                                                 </div>
@@ -175,9 +139,6 @@
                                                         <div class="col-lg-10">
                                                             <div class="login-horizental cancel-wp pull-left">
                                                                 <button class="btn btn-white" type="submit">Cancel</button>
-<!--
-                                                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
--->
                                                                 <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save Bhaban</button>
                                                             </div>
                                                         </div>

@@ -93,8 +93,72 @@ public class MeetingController {
             model.addAttribute("orgList", this.orgRepo.findAll());
             return "meetings/edit";
         } else {
-            meeting.setId(id);
+
             this.repo.save(meeting);
+            meeting.setId(id);
+
+            try {
+                String to = "";
+                String message = "";
+                for (User user : meeting.getUsers()) {
+                    to = user.getMobile(); //Recipient Phone Number multiple number must be separated by comma
+                    message = "Hi,  " + user.getFirstName() + ", Next "+meeting.getStartDate() +" "+meeting.getSubject() + "::: Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName();
+                    String token = "4c7fbb7eb69dcbe230dc0d9d899d9b91"; //generate token from the control panel
+                    String uri = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
+                    RestTemplate restTemplate = new RestTemplate();
+                    String results = restTemplate.getForObject(uri, String.class);
+                }
+
+                System.out.println("Success");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("orgList", this.orgRepo.findAll());
+        return "redirect:/meet/list";
+    }
+
+    @GetMapping(value = "cancel/{id}")
+    public String viewCancel(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("meeting", repo.getOne(id));
+        model.addAttribute("userList", this.userRepo.findAll());
+        model.addAttribute("orgList", this.orgRepo.findAll());
+        return "meetings/cancel";
+    }
+
+    @PostMapping(value = "cancel/{id}")
+    public String cancel(@Valid Meeting meeting, BindingResult result, Model model, @PathVariable("id") Long id) {
+        if (result.hasErrors()) {
+            model.addAttribute("userList", this.userRepo.findAll());
+            model.addAttribute("orgList", this.orgRepo.findAll());
+            return "meetings/eancel";
+        } else {
+
+            this.repo.save(meeting);
+
+            try {
+                String to = "";
+                String message = "";
+                for (User user : meeting.getUsers()) {
+                    to = user.getMobile(); //Recipient Phone Number multiple number must be separated by comma
+                    message = "Hi,  " + user.getFirstName() + ", Next "+meeting.getStartDate() +" "+meeting.getSubject() + "::: Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName();
+                    String token = "4c7fbb7eb69dcbe230dc0d9d899d9b91"; //generate token from the control panel
+                    String uri = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
+                    RestTemplate restTemplate = new RestTemplate();
+                    String results = restTemplate.getForObject(uri, String.class);
+                }
+
+                System.out.println("Success");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
         }
         model.addAttribute("userList", this.userRepo.findAll());
         model.addAttribute("orgList", this.orgRepo.findAll());
@@ -102,9 +166,26 @@ public class MeetingController {
     }
 
     @GetMapping(value = "del/{id}")
-    public String Delet(@PathVariable("id") Long id) {
+    public String Delet(@PathVariable("id") Long id, @Valid Meeting meeting) {
         if (id != null) {
             this.repo.deleteById(id);
+            try {
+                String to = "";
+                String message = "";
+                for (User user : meeting.getUsers()) {
+                    to = user.getMobile(); //Recipient Phone Number multiple number must be separated by comma
+                    message = "Hi,  " + user.getFirstName() + ", Next "+meeting.getStartDate() +" "+meeting.getSubject() + "::: Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName();
+                    String token = "4c7fbb7eb69dcbe230dc0d9d899d9b91"; //generate token from the control panel
+                    String uri = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
+                    RestTemplate restTemplate = new RestTemplate();
+                    String results = restTemplate.getForObject(uri, String.class);
+                }
+
+                System.out.println("Success");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return "redirect:/meet/list";
     }

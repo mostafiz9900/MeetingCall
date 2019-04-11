@@ -1,11 +1,18 @@
 package com.beskilled.entity;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.Set;
 
 public class MeetingMinorsDto {
     private Long meetingId;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startDate;
     private String meetingsubject;
     private String meetingAgenda;

@@ -29,14 +29,16 @@ public class MinorController {
     @GetMapping(value = "add/{id}")
     public String deptAdd(Model model, @PathVariable("id") Long id){
         Meeting meeting = meetingRepo.getOne(id);
-        MeetingMinorsDto dto=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getSubject(),"", "", meeting.getUsers(), meeting.getOrganization(), "");
+        MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getSubject(),"", "", meeting.getUsers(), meeting.getOrganization(), "");
 
-        model.addAttribute("dto", dto);
+        model.addAttribute("dto", dtos);
         return "minors/add";
     }
 
     @PostMapping(value = "add/{id}")
     public String deptAdd(@Valid MeetingMinorsDto dto, BindingResult result, Model model, @PathVariable("id") Long id){
+        Meeting meeting = meetingRepo.getOne(id);
+        dto.setStartDate(meeting.getStartDate());
         if(result.hasErrors()){
             return "minors/add";
 
@@ -48,8 +50,10 @@ public class MinorController {
             minor.setMeeting(new Meeting(id));
             /////////dto theke value ene minor obj set korbe then save
             this.repo.save(minor);
-            model.addAttribute("dto", new MeetingMinorsDto());
-            model.addAttribute("minor", new Minor());
+
+            MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getSubject(),"", "", meeting.getUsers(), meeting.getOrganization(), "");
+            model.addAttribute("dto", dtos);
+
             model.addAttribute("successMsg","Successfully Saved!");
         }
        /* model.addAttribute("meetingList", this.meetingRepo.findAll());*/
