@@ -54,5 +54,8 @@ public class HomeController {
         model.addAttribute("email", user.getEmail());
         return "secure/secure";
     }*/
-
+    @GetMapping(value = "/dt")
+    public String dateTime(){
+        return "dataTime";
+    }
 }
