@@ -2,21 +2,22 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout2.html}">
 <head>
     <meta charset="UTF-8">
     <title>Meeting Add</title>
 
    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
 
 
-    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
 
     <script type='text/javascript'>
         $( document ).ready(function() {
@@ -24,15 +25,9 @@
         });
     </script>
 
-  <!--  <link rel="stylesheet" th:href="@{/css/editor/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/editor/bootstrap-datetimepick.min.css}">
-    <script th:src="@{/css/datapicker/jquery.min.js}"></script>
-    <script th:src="@{/css/editor/bootstrap-datetimepicker.min.js}"></script>
-    <script th:src="@{/css/editor/moment.min.js}"></script>
-    <script th:src="@{/css/editor/bootstrap.min.js}"></script>-->
 </head>
 <body>
-<div layout:fragment="custom-content">
+<div layout:fragment="custom-content2">
 
 
     <div class="basic-form-area mg-tb-15">
@@ -71,8 +66,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <!-- end user list-->
-                                                    <!-- start organization list-->
+
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Organization Name</label>
                                                     </div>
@@ -97,17 +91,17 @@
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                                                         <div class='input-group date' id='datetimepicker1'>
-                                                            <input type='text' class="form-control" />
+                                                            <input type='text' th:field="*{startDate}" class="form-control" />
                                                             <span class="input-group-addon">
-                     <span class="glyphicon glyphicon-calendar"></span>
-                     </span>
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
 
-                                            <div class="form-group-inner">
+                                        <!--    <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Meeting Date</label>
@@ -117,7 +111,7 @@
                                                         <span th:class="err" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">startDate Error</span>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">

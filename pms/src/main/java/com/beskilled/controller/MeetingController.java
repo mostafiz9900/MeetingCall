@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/meet/")
@@ -50,6 +51,7 @@ public class MeetingController {
 
         } else {
 
+
             this.repo.save(meeting);
             model.addAttribute("meeting", new Meeting());
             model.addAttribute("successMsg", "Successfully Saved!");
@@ -58,7 +60,7 @@ public class MeetingController {
                 String message = "";
                 for (User user : meeting.getUsers()) {
                     to = user.getMobile(); //Recipient Phone Number multiple number must be separated by comma
-                    message = "Hi,my dear sir " + user.getFirstName() + ", Next "+meeting.getStartDate() +" "+meeting.getSubject() + "::: Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName()+"::"+meeting.getBody();
+                    message = "Hi,my dear " + user.getFirstName() + ", Next "+meeting.getStartDate() +" "+meeting.getSubject() + "::: Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName()+"::"+meeting.getBody();
                     String token = "4c7fbb7eb69dcbe230dc0d9d899d9b91"; //generate token from the control panel
                     String uri = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
                     RestTemplate restTemplate = new RestTemplate();
