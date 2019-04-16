@@ -38,9 +38,9 @@
                                             <th data-field="id">ID</th>
 
 
-                                            <th data-field="startDate">Start Date</th>
-                                            <th data-field="toAdderss" >To Address</th>
-                                            <th data-field="fromAddress" >FromAddress</th>
+                                           <!-- <th data-field="startDate">Start Date</th>-->
+                                            <th data-field="toAdderss" >Start Date</th>
+                                            <th data-field="fromAddress" >Start Time</th>
                                             <th data-field="subject" >Subject</th>
                                             <th data-field="body" >Body</th>
                                             <th data-field="end" >End</th>
@@ -58,7 +58,7 @@
                                         <tr th:each="meeting:${list}">
                                             <td></td>
                                             <td th:text="${meeting.id}"></td>
-                                            <td th:text="${meeting.startDate}"></td>
+                                            <!--<td th:text="${meeting.startDate}"></td>-->
                                             <td th:text="${meeting.toAddress}"></td>
                                             <td th:text="${meeting.fromAddress}"></td>
                                             <td th:text="${meeting.subject}"></td>

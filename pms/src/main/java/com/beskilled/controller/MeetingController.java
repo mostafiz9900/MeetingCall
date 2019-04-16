@@ -106,7 +106,7 @@ public class MeetingController {
                 String message = "";
                 for (User user : meeting.getUsers()) {
                     to = user.getMobile(); //Recipient Phone Number multiple number must be separated by comma
-                    message = "Hi,  " + user.getFirstName() + ", Next "+meeting.getStartDate() +" "+meeting.getSubject() + "::: Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName();
+                    message = "Hi,  " + user.getFirstName() + ", Re-call,Next "+meeting.getToAddress()+" "+meeting.getSubject()+ " Requested By " +meeting.getOrganization().getOrgChiefName()+"," +meeting.getOrganization().getOrgName();
                     String token = "4c7fbb7eb69dcbe230dc0d9d899d9b91"; //generate token from the control panel
                     String uri = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
                     RestTemplate restTemplate = new RestTemplate();
@@ -149,7 +149,7 @@ public class MeetingController {
                 String message = "";
                 for (User user : meeting.getUsers()) {
                     to = user.getMobile(); //Recipient Phone Number multiple number must be separated by comma
-                    message = "Hi,  " + user.getFirstName() + ", Next "+meeting.getStartDate() +" "+meeting.getSubject() + "::: Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName();
+                    message = "Hi,  " + user.getFirstName()+ ",Remove a meeting,Date was "+meeting.getToAddress()+" "+meeting.getFromAddress()+" "+meeting.getSubject() + " Requested By " + meeting.getOrganization().getOrgChiefName() + "," + meeting.getOrganization().getOrgName();
                     String token = "4c7fbb7eb69dcbe230dc0d9d899d9b91"; //generate token from the control panel
                     String uri = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
                     RestTemplate restTemplate = new RestTemplate();
