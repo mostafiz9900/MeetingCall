@@ -45,6 +45,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
+                                        <span th:class="erro" th:text="${erroMee}"></span>
                                         <span th:class="succes" th:text="${successMsg}"></span>
                                         <form th:object="${meeting}" th:action="@{/meet/add}" th:method="POST">
                                             <div class="form-group-inner">
@@ -84,24 +85,24 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group-inner">
+                                           <!-- <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Meeting Date</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                                                         <div class='input-group date' id='datetimepicker1'>
-                                                            <input type='text' th:field="*{startDate}" class="form-control" />
+                                                            <input type='date' th:field="*{startDate}" class="form-control" />
                                                             <span class="input-group-addon">
                                                                 <span class="glyphicon glyphicon-calendar"></span>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
 
 
-                                        <!--    <div class="form-group-inner">
+                                          <!--  <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Meeting Date</label>
@@ -115,10 +116,10 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">To Address</label>
+                                                        <label class="login2 pull-right pull-right-pro">Date :</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="email" th:field="*{toAddress}" class="form-control" multiple/>
+                                                        <input type="date" th:field="*{toAddress}" class="form-control" multiple/>
                                                         <span th:class="err" th:if="${#fields.hasErrors('toAddress')}" th:errors="*{toAddress}">To Error</span>
                                                     </div>
                                                 </div>
@@ -127,10 +128,10 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">FromAddress</label>
+                                                        <label class="login2 pull-right pull-right-pro">Time :</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="email" th:field="*{fromAddress}" class="form-control" />
+                                                        <input type="datetime-local" th:field="*{fromAddress}" class="form-control" />
                                                         <span th:class="err" th:if="${#fields.hasErrors('fromAddress')}" th:errors="*{fromAddress}">Form Error</span>
                                                     </div>
                                                 </div>

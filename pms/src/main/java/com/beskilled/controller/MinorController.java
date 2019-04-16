@@ -29,7 +29,7 @@ public class MinorController {
     @GetMapping(value = "add/{id}")
     public String deptAdd(Model model, @PathVariable("id") Long id){
         Meeting meeting = meetingRepo.getOne(id);
-        MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getSubject(),"", "", meeting.getUsers(), meeting.getOrganization(), "");
+        MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getToAddress(), meeting.getSubject(),"", "", meeting.getUsers(), meeting.getOrganization(), "");
 
         model.addAttribute("dto", dtos);
         return "minors/add";
@@ -39,6 +39,7 @@ public class MinorController {
     public String deptAdd(@Valid MeetingMinorsDto dto, BindingResult result, Model model, @PathVariable("id") Long id){
         Meeting meeting = meetingRepo.getOne(id);
         dto.setStartDate(meeting.getStartDate());
+        dto.setMeetingDate(meeting.getToAddress());
         if(result.hasErrors()){
             return "minors/add";
 
@@ -51,7 +52,7 @@ public class MinorController {
             /////////dto theke value ene minor obj set korbe then save
             this.repo.save(minor);
 
-            MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getSubject(),"", "", meeting.getUsers(), meeting.getOrganization(), "");
+            MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(),meeting.getToAddress(), meeting.getSubject(),"", "", meeting.getUsers(), meeting.getOrganization(), "");
             model.addAttribute("dto", dtos);
 
             model.addAttribute("successMsg","Successfully Saved!");
@@ -60,7 +61,61 @@ public class MinorController {
         return "minors/add";
     }
 
+
     @GetMapping(value = "edit/{id}")
+    public String deptEditView(Model model, @PathVariable("id") Long id){
+        Minor minor=repo.getOne(id);
+        Meeting meeting = meetingRepo.getOne(id);
+        MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getToAddress(), meeting.getSubject(),minor.getAgendaAction(), minor.getMeetingTitle(), meeting.getUsers(), meeting.getOrganization(), minor.getRemark());
+
+        model.addAttribute("dto", dtos);
+
+
+        return "minors/edit";
+    }
+
+    @PostMapping(value = "edit/{id}")
+    public String deptEdit(@Valid MeetingMinorsDto dto, BindingResult result, Model model, @PathVariable("id") Long id){
+        Meeting meeting = meetingRepo.getOne(id);
+        dto.setStartDate(meeting.getStartDate());
+        dto.setMeetingDate(meeting.getToAddress());
+        if(result.hasErrors()){
+            return "minors/edit";
+
+        }else{
+
+            Minor minor=new Minor();
+            minor.setMeetingTitle(dto.getMeetingsubject());
+            minor.setAgendaAction(dto.getMeetingAgenda());
+            minor.setRemark(dto.getRemarks());
+            minor.setMeeting(new Meeting(id));
+            /////////dto theke value ene minor obj set korbe then save
+            minor.setId(id);
+            this.repo.save(minor);
+
+            MeetingMinorsDto dtos=new MeetingMinorsDto(meeting.getId(), meeting.getStartDate(), meeting.getToAddress(), meeting.getSubject(),minor.getAgendaAction(), minor.getMeetingTitle(), meeting.getUsers(), meeting.getOrganization(), minor.getRemark());
+            model.addAttribute("dto", dtos);
+
+            model.addAttribute("successMsg","Successfully Saved!");
+        }
+        /* model.addAttribute("meetingList", this.meetingRepo.findAll());*/
+        return "redirect:/minor/list";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* @GetMapping(value = "edit/{id}")
     public String viewEdit(Model model, @PathVariable("id") Long id){
         model.addAttribute("minor",repo.getOne(id));
         model.addAttribute("meetingList", this.meetingRepo.findAll());
@@ -78,7 +133,7 @@ public class MinorController {
         }
         model.addAttribute("meetingList", this.meetingRepo.findAll());
         return "redirect:/minor/list";
-    }
+    }*/
 
     @GetMapping(value = "del/{id}")
     public String Delet(@PathVariable("id") Long id){

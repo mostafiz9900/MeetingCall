@@ -15,7 +15,7 @@ public class Meeting {
     private Long id;
 
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false)
     private Date startDate;
     private String toAddress;

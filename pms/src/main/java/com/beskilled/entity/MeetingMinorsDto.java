@@ -12,8 +12,9 @@ public class MeetingMinorsDto {
     private Long meetingId;
 
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
+    private String meetingDate;
     private String meetingsubject;
     private String meetingAgenda;
     private String meetingMinors;
@@ -24,9 +25,10 @@ public class MeetingMinorsDto {
     public MeetingMinorsDto() {
     }
 
-    public MeetingMinorsDto(Long meetingId, Date startDate, String meetingsubject, String meetingAgenda, String meetingMinors, Set<User> presentOfficers, Organization organization, String remarks) {
+    public MeetingMinorsDto(Long meetingId, Date startDate, String meetingDate, String meetingsubject, String meetingAgenda, String meetingMinors, Set<User> presentOfficers, Organization organization, String remarks) {
         this.meetingId = meetingId;
         this.startDate = startDate;
+        this.meetingDate = meetingDate;
         this.meetingsubject = meetingsubject;
         this.meetingAgenda = meetingAgenda;
         this.meetingMinors = meetingMinors;
@@ -49,6 +51,14 @@ public class MeetingMinorsDto {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public String getMeetingDate() {
+        return meetingDate;
+    }
+
+    public void setMeetingDate(String meetingDate) {
+        this.meetingDate = meetingDate;
     }
 
     public String getMeetingsubject() {

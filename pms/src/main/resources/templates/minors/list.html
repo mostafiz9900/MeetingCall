@@ -43,7 +43,8 @@
 
                                             <th data-field="offeser">Offeser Name</th>
                                             <th data-field="OrgName" >Org Name</th>
-                                            <th data-field="startDate" >Start Date</th>
+                                            <th data-field="startdate" >Start Date</th>
+                                            <!--<th data-field="meetingDates" >Meeting Date</th>-->
                                             <th data-field="meetingSubj" >Meeting Subject</th>
 
 
@@ -81,7 +82,13 @@
                                             <span th:each="org:${min.meeting}">
                                                 <span th:text="${org.startDate}"></span>
                                             </span>
-                                        </td>
+                                            </td>
+
+                                         <!--   <td>
+                                            <span th:each="org:${min.meeting}">
+                                                <span th:text="${org.meetingDate}"></span>
+                                            </span>
+                                            </td>-->
                                             <td>
                                             <span th:each="org:${min.meeting}">
                                                 <span th:text="${org.subject}"></span>
