@@ -6,6 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Minor Add</title>
+    <style type="text/css">
+        .succes{
+            color: #00acee;
+            font-size: 25px;
+
+        }
+    </style>
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -101,8 +108,8 @@
                                                         <label class="login2 pull-right pull-right-pro">meetingAgenda</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{meetingAgenda}"
-                                                               class="form-control"/>
+                                                       <!-- <input type="text" th:field="*{meetingAgenda}" class="form-control"/>-->
+                                                        <textarea class="form-control" rows="5" th:field="*{meetingAgenda}"></textarea>
 
                                                     </div>
                                                 </div>
@@ -113,8 +120,8 @@
                                                         <label class="login2 pull-right pull-right-pro">meetingMinors</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" th:field="*{meetingMinors}"
-                                                               class="form-control"/>
+                                                       <!-- <input type="text" th:field="*{meetingMinors}" class="form-control"/>-->
+                                                        <textarea class="form-control" rows="5" th:field="*{meetingMinors}"></textarea>
 
                                                     </div>
                                                 </div>

@@ -10,10 +10,12 @@
 <body>
 <div layout:fragment="custom-content">
     <div class="container">
-        <a th:href="@{/user/report/}"  class="btn btn-info">Report</a>
-        <a th:href="@{/user/pdf/}"  class="btn btn-info">Report Pdf</a>
+        <a th:href="@{/user/report}"  class="btn btn-info">User Report</a>
+        <a th:href="@{/user/pdf}"  class="btn btn-info">User Report Download Pdf</a>
 
-        </table>
+        <a th:href="@{/dept/deptreport}"  class="btn btn-info">Department Report</a>
+        <a th:href="@{/dept/deptpdf}"  class="btn btn-info">Department download Report</a>
+
     </div>
 </div>
 </body>

@@ -13,6 +13,7 @@ import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -29,6 +30,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -233,15 +235,15 @@ public class UserController {
     //    @RequestMapping(value = "/pdf", method = RequestMethod.GET,
 //            produces = MediaType.APPLICATION_PDF_VALUE)
     public void reportPdf() throws Exception {
-        String source = "D:\\git\\myGit\\MeetingCall\\pms\\src\\main\\resources\\report.jrxml";
+        String source = "F:\\git\\mygit\\MeetingCall\\pms\\src\\main\\resources\\report.jrxml";
         try {
             JasperCompileManager.compileReportToFile(source);
         } catch (JRException e) {
             e.printStackTrace();
         }
-        String sourceFileName = "D:\\git\\myGit\\MeetingCall\\pms\\src\\main\\resources\\report1.jasper";
+        String sourceFileName = "F:\\git\\mygit\\MeetingCall\\pms\\src\\main\\resources\\report1.jasper";
         String printFileName = null;
-        String destFileName = "D:\\git\\myGit\\MeetingCall\\pms\\src\\main\\resources\\report.pdf";
+        String destFileName = "F:\\git\\mygit\\MeetingCall\\pms\\src\\main\\resources\\report.pdf";
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(userService.report());
         Map parameters = new HashMap();
         try {
@@ -264,11 +266,10 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String fileName="D:\\\\git\\\\myGit\\\\MeetingCall\\\\pms\\\\src\\\\main\\\\resources\\\\report.pdf";
+        String fileName="F:\\\\git\\mygit\\\\MeetingCall\\\\pms\\\\src\\\\main\\\\resources\\\\report.pdf";
         MediaType mediaType = MediaTypeUtils.getMediaTypeForFileName(this.context, fileName);
 
         File file=new File(fileName);
-
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
         return ResponseEntity.ok()

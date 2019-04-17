@@ -6,6 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Meeting Add</title>
+    <style type="text/css">
+        .succes{
+            color: #00acee;
+            font-size: 25px;
+
+        }
+    </style>
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -127,7 +134,8 @@
                                                         <label class="login2 pull-right pull-right-pro">Statas</label>
                                                     </div>
                                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                        <input type="text" th:field="*{end}" class="form-control" />
+                                                        <!-- <input type="text" th:field="*{end}" class="form-control" required />-->
+                                                        <textarea class="form-control" rows="5" th:field="*{end}"></textarea>
                                                         <span th:class="err" th:if="${#fields.hasErrors('end')}" th:errors="*{end}">End Error</span>
                                                     </div>
                                                 </div>
