@@ -93,7 +93,9 @@
                          role="alert" th:text=${errorMessage}></div>
 
                     <div th:if="${invalidToken}" class="alert alert-danger"
-                         role="alert" th:text=${invalidToken}></div>
+                         role="alert" th:text=${invalidToken}>
+
+                    </div>
                     <form action="#" th:if="!${invalidToken}" th:object="${setPassword}" th:action="@{/confirm}"
                           method="post" id="loginForm">
                         <input type="hidden" name="token" th:value=${confirmationToken}>
@@ -134,7 +136,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center login-footer">
-            <p>Copyright &copy; 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
+            <p>Copyright &copy; 2019 <a href="https://colorlib.com/wp/templates/">Mostafiz</a> All rights reserved.</p>
         </div>
     </div>
 </div>
